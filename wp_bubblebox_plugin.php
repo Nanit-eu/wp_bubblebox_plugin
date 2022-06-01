@@ -7,7 +7,7 @@
  * Author URI:      YOUR SITE HERE
   * Text Domain:     bubblebox-widget-plugin
  * Domain Path:     /languages
- * Version:         0.1.1
+ * Version:         0.1.3
  *
  * @package         Vl_bubblebox_widget_plugin
  */
@@ -17,8 +17,6 @@
  */
 class Vl_bubblebox_widget_plugin {}
 if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-define('NANITBONWEWIDGETVERSION', '1.0.0');
 
 require dirname(__FILE__) . "/bubblebox.php";
 
@@ -60,3 +58,16 @@ function VL_BubbleBox_React_load() {
     register_widget( 'VL_BubbleBox_React' );
 }
 add_action( 'widgets_init', 'VL_BubbleBox_React_load' );
+
+
+if( ! class_exists( 'Smashing_Updater' ) ){
+    include_once( plugin_dir_path( __FILE__ ) . 'Bubblebox_Updater.php' );
+}
+
+$updater = new Bubblebox_Updater( __FILE__ );
+$updater->set_username( 'Nanit-eu' );
+$updater->set_repository( 'wp_bubblebox_plugin' );
+/*
+	$updater->authorize( 'abcdefghijk1234567890' ); // Your auth code goes here for private repos
+*/
+$updater->initialize();
