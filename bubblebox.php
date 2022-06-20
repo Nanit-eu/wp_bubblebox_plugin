@@ -87,14 +87,14 @@ class VL_BubbleBox_React extends WP_Widget {
     public function print_scripts() {
         $i=0;
         foreach (self::get_build_files('js') as $file){
-            wp_enqueue_script('wpVentureLeap-BubbleBox_' . $i++ . '_widget-js-defer', $file);
+            wp_enqueue_script('wpVentureLeap-BubbleBox_' . $i++ . '_widget-js-defer', plugin_dir_url(__FILE__).$file);
         }
     }
 
     public function print_styles() {
         $i=0;
         foreach (self::get_build_files('js') as $file){
-            wp_enqueue_style('wpVentureLeap-BubbleBox_' . $i++ . '_widget', $file);
+            wp_enqueue_style('wpVentureLeap-BubbleBox_' . $i++ . '_widget', plugin_dir_url(__FILE__).$file);
         }
     }
 
