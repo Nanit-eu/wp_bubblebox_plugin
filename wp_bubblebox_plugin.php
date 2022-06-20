@@ -7,7 +7,7 @@
  * Author URI:      YOUR SITE HERE
   * Text Domain:     bubblebox-widget-plugin
  * Domain Path:     /languages
- * Version:         0.1.3
+ * Version:         0.1.2
  *
  * @package         Vl_bubblebox_widget_plugin
  */

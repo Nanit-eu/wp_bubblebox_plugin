@@ -62,7 +62,7 @@ class VL_BubbleBox_React extends WP_Widget {
         }
         extract($args);
         $return.='
-        <div id="__next" data-reactroot="" style="background:white; width:100%;">
+        <div id="__next" data-reactroot="" style="width:100%;">
     <div>zertzertzert </div>
 </div>
 <script id="__NEXT_DATA__" type="application/json">{
@@ -71,7 +71,8 @@ class VL_BubbleBox_React extends WP_Widget {
     },
     "page": "/",
     "query": {},
-    "buildId": "h_DO-W7bBcx7vkD6Jwg-Z",
+    "buildId": "my-build-id",
+    "assetPrefix": "http://127.0.0.1:8080",
     "nextExport": true,
     "autoExport": true,
     "isFallback": false,
@@ -84,14 +85,13 @@ class VL_BubbleBox_React extends WP_Widget {
     }
 
     public function print_scripts() {
-
         wp_enqueue_script( 'wpVentureLeap-BubbleBoxC_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/polyfills-5cd94c89d3acac5f.js');
-        wp_enqueue_script( 'wpVentureLeap-BubbleBoxD_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/webpack-6c6545dd242ed118.js');
+        wp_enqueue_script( 'wpVentureLeap-BubbleBoxD_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/webpack-146047ef8bd8e0e1.js');
         wp_enqueue_script( 'wpVentureLeap-BubbleBoxE_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/framework-5f4595e5518b5600.js');
         wp_enqueue_script( 'wpVentureLeap-BubbleBoxF_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/main-e0ecf8f11466bcfc.js');
-        wp_enqueue_script( 'wpVentureLeap-BubbleBoxG_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/pages/_app-82f7ef6dbd6120ef.js');
-        wp_enqueue_script( 'wpVentureLeap-BubbleBoxH_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/69-2f15f5a1c3fe8a54.js');
-        wp_enqueue_script( 'wpVentureLeap-BubbleBoxI_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/pages/index-74f9269bc607513c.js');
+        wp_enqueue_script( 'wpVentureLeap-BubbleBoxG_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/pages/_app-3d755d0f3a4ab83e.js');
+        wp_enqueue_script( 'wpVentureLeap-BubbleBoxH_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/782-238457ba26781b02.js');
+        wp_enqueue_script( 'wpVentureLeap-BubbleBoxI_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/pages/index-bc81d05d822de798.js');
         wp_enqueue_script( 'wpVentureLeap-BubbleBoxJ_widget-js-defer', 'http://127.0.0.1:8080/_next/static/my-build-id/_buildManifest.js');
         wp_enqueue_script( 'wpVentureLeap-BubbleBoxK_widget-js-defer', 'http://127.0.0.1:8080/_next/static/my-build-id/_ssgManifest.js');
         wp_enqueue_script( 'wpVentureLeap-BubbleBoxL_widget-js-defer', 'http://127.0.0.1:8080/_next/static/my-build-id/_middlewareManifest.js');
@@ -100,7 +100,6 @@ class VL_BubbleBox_React extends WP_Widget {
 
     public function print_styles() {
         wp_enqueue_style('wpVentureLeap-BubbleBox_widget', 'http://127.0.0.1:8080/_next/static/css/782436bc58b3fadb.css');
-        wp_enqueue_style('wpVentureLeap-BubbleBox_widget', 'http://127.0.0.1:8080/_next/static/css/b44e452a9b15cc82.css');
     }
 
 }
