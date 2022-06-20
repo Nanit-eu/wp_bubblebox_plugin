@@ -85,21 +85,40 @@ class VL_BubbleBox_React extends WP_Widget {
     }
 
     public function print_scripts() {
-        wp_enqueue_script( 'wpVentureLeap-BubbleBoxC_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/polyfills-5cd94c89d3acac5f.js');
-        wp_enqueue_script( 'wpVentureLeap-BubbleBoxD_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/webpack-146047ef8bd8e0e1.js');
-        wp_enqueue_script( 'wpVentureLeap-BubbleBoxE_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/framework-5f4595e5518b5600.js');
-        wp_enqueue_script( 'wpVentureLeap-BubbleBoxF_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/main-e0ecf8f11466bcfc.js');
-        wp_enqueue_script( 'wpVentureLeap-BubbleBoxG_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/pages/_app-3d755d0f3a4ab83e.js');
-        wp_enqueue_script( 'wpVentureLeap-BubbleBoxH_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/782-238457ba26781b02.js');
-        wp_enqueue_script( 'wpVentureLeap-BubbleBoxI_widget-js-defer', 'http://127.0.0.1:8080/_next/static/chunks/pages/index-bc81d05d822de798.js');
-        wp_enqueue_script( 'wpVentureLeap-BubbleBoxJ_widget-js-defer', 'http://127.0.0.1:8080/_next/static/my-build-id/_buildManifest.js');
-        wp_enqueue_script( 'wpVentureLeap-BubbleBoxK_widget-js-defer', 'http://127.0.0.1:8080/_next/static/my-build-id/_ssgManifest.js');
-        wp_enqueue_script( 'wpVentureLeap-BubbleBoxL_widget-js-defer', 'http://127.0.0.1:8080/_next/static/my-build-id/_middlewareManifest.js');
-
+        $i=0;
+        foreach (self::get_build_files('js') as $file){
+            wp_enqueue_script('wpVentureLeap-BubbleBox_' . $i++ . '_widget-js-defer', $file);
+        }
     }
 
     public function print_styles() {
-        wp_enqueue_style('wpVentureLeap-BubbleBox_widget', 'http://127.0.0.1:8080/_next/static/css/782436bc58b3fadb.css');
+        $i=0;
+        foreach (self::get_build_files('js') as $file){
+            wp_enqueue_style('wpVentureLeap-BubbleBox_' . $i++ . '_widget', $file);
+        }
+    }
+
+    static public function get_build_files($fileType='js') {
+        $filesList=['js'=>[],'css'=>[]];
+
+        $string = file_get_contents(__DIR__."/build-manifest.json");
+        $react_ressources = json_decode($string, true);
+        $i=0;
+        foreach ($react_ressources['polyfillFiles'] as $file) {
+            $filesList['js'][$file]=$file;
+        }
+        foreach ($react_ressources['pages'] as $pages) {
+            foreach ($pages as $file) {
+                if(strpos($file, '.css')>0)
+                    $filesList['css'][$file]=$file;
+                else
+                    $filesList['js'][$file]=$file;
+            }
+        }
+        foreach ($react_ressources['lowPriorityFiles'] as $file) {
+            $filesList['js'][$file]=$file;
+        }
+        return array_keys($filesList[$fileType]);
     }
 
 }
