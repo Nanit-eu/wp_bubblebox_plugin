@@ -93,7 +93,7 @@ class VL_BubbleBox_React extends WP_Widget {
 
     public function print_styles() {
         $i=0;
-        foreach (self::get_build_files('js') as $file){
+        foreach (self::get_build_files('css') as $file){
             wp_enqueue_style('wpVentureLeap-BubbleBox_' . $i++ . '_widget', plugin_dir_url(__FILE__).$file);
         }
     }
