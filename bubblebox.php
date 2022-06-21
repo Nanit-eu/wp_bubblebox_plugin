@@ -63,21 +63,9 @@ class VL_BubbleBox_React extends WP_Widget {
         extract($args);
         $return.='
         <div id="__next" data-reactroot="" style="width:100%;">
-    <div>zertzertzert </div>
+    <div></div>
 </div>
-<script id="__NEXT_DATA__" type="application/json">{
-    "props": {
-        "pageProps": {}
-    },
-    "page": "/",
-    "query": {},
-    "buildId": "my-build-id",
-    "assetPrefix": "http://127.0.0.1:8080",
-    "nextExport": true,
-    "autoExport": true,
-    "isFallback": false,
-    "scriptLoader": []
-}</script>';
+';
 
 
         $return.= $args['after_widget'];
