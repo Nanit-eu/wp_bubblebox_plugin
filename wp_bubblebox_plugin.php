@@ -7,7 +7,7 @@
  * Author URI:      http://www.venture-leap.com
   * Text Domain:     bubblebox-widget-plugin
  * Domain Path:     /languages
- * Version:         0.2
+ * Version:         0.2.1
  *
  * @package         Vl_bubblebox_widget_plugin
  */

@@ -64,7 +64,18 @@ class VL_BubbleBox_React extends WP_Widget {
         $return.='
         <div id="__next" data-reactroot="" style="width:100%;">
     <div></div>
-</div>';
+</div>
+<script id="__NEXT_DATA__" type="application/json">{
+    "props": {
+        "pageProps": {}
+    },
+    "page": "/",
+    "query": {},
+    "nextExport": true,
+    "autoExport": true,
+    "isFallback": false,
+    "scriptLoader": []
+}</script>';
 
 
         $return.= $args['after_widget'];
