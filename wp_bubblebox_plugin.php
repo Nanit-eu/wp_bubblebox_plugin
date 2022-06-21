@@ -3,11 +3,11 @@
  * Plugin Name:     BubbleBox widget
  * Plugin URI:      http://www.venture-leap.com
  * Description:     BubbleBox widget
- * Author:          Fred
- * Author URI:      YOUR SITE HERE
+ * Author:          Fred@nanit.be
+ * Author URI:      http://www.venture-leap.com
   * Text Domain:     bubblebox-widget-plugin
  * Domain Path:     /languages
- * Version:         0.1.9
+ * Version:         0.2
  *
  * @package         Vl_bubblebox_widget_plugin
  */
